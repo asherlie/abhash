@@ -50,6 +50,7 @@ void free_h_struct(struct h_struct* hs){
                   puts("FREED FINAL TWO NODES");
             }
       }
+      free(hs->ind_opts);
 }
 
 void insert_h_data(struct h_struct* hs, void* data, int hasher(void*)){

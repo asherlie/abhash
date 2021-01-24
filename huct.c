@@ -5,19 +5,16 @@
 struct h_node{
       /* points to some data */
       void* data;
-      /*char* str[100];*/
       struct h_node* next;
 };
 
 struct h_node_entry{
       struct h_node* node, * end;
       int n_occupants;
-      /*struct h_node* end;*/
 };
 
 struct h_struct{
       int n_buckets;
-      /*struct h_node* ind_opts;*/
       struct h_node_entry* ind_opts;
 };
 

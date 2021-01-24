@@ -2,21 +2,7 @@
 #include <string.h>
 #include <stdio.h>
 
-struct h_node{
-      /* points to some data */
-      void* data;
-      struct h_node* next;
-};
-
-struct h_node_entry{
-      struct h_node* node, * end;
-      int n_occupants;
-};
-
-struct h_struct{
-      int n_buckets;
-      struct h_node_entry* ind_opts;
-};
+#include "huct.h"
 
 /*
  * this creates n_buckets linked lists in an array
@@ -80,7 +66,6 @@ struct h_node* find_h_node(struct h_struct* hs, void* data, int hasher(void*), _
 int hasher(void* data){
       char* str = data;
       return (int)*str;
-      /*return 4;*/
 }
 
 _Bool dcomp(void* str0, void* str1){

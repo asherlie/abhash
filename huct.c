@@ -60,3 +60,14 @@ struct h_node* find_h_node(struct h_struct* hs, void* data, int hasher(void*), _
       }
       return NULL;
 }
+
+float hash_spread(struct h_struct* hs){
+      float n_unique = 0;
+      for(int i = 0; i < hs->n_buckets; ++i){
+            /*num larger with more variety*/
+            /*nunique/nbuckets*/
+            /*for(struct h_node* hn = hs->ind_opts[i].)*/
+            n_unique += (_Bool)hs->ind_opts[i].n_occupants;
+      }
+      return n_unique/(float)hs->n_buckets;
+}

@@ -4,8 +4,15 @@
 
 #include "huct.h"
 
+#define MIN_BYTES 4
+
 /* user provided functions */
 int hasher(void* data){
+      char* buf = data;
+      return (int)buf[*buf%MIN_BYTES];
+}
+
+int hasher_simple(void* data){
       char* str = data;
       return (int)*str;
 }
@@ -39,6 +46,8 @@ int main(int a, char** b){
       printf("%sABLE to find entry\n", (found) ? "" : "UN");
       if(found)printf("found entry is %sidentical to input\n", (found->data == str) ? "" : "not ");
       puts("");
+
+      printf("achieved spread: %.3f\n", hash_spread(&hs));
 
       free_h_struct(&hs);
 

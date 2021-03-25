@@ -18,18 +18,18 @@ void free_h_struct(struct h_struct* hs){
             if(hs->ind_opts[i].n_occupants){
                   if(hs->ind_opts[i].n_occupants == 1){
                         free(hs->ind_opts[i].node);
-                        puts("FREED SINGLE NODE");
+                        /*puts("FREED SINGLE NODE");*/
                         continue;
                   }
                   struct h_node* prev = hs->ind_opts[i].node;
                   for(struct h_node* hn = prev->next; hn != hs->ind_opts[i].end; hn = hn->next){
                         free(prev);
-                        puts("FREED PREV NODE");
+                        /*puts("FREED PREV NODE");*/
                         prev = hn;
                   }
                   free(prev);
                   free(hs->ind_opts[i].end);
-                  puts("FREED FINAL TWO NODES");
+                  /*puts("FREED FINAL TWO NODES");*/
             }
       }
       free(hs->ind_opts);
